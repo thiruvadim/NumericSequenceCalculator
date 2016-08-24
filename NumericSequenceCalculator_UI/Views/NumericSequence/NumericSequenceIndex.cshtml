@@ -1,0 +1,94 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NumericSequence</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <div class="form-horizontal" style="padding-left:150px">
+        <div class="panel panel-default col-sm-8" style="margin-bottom: 5px;" align="center">
+            <label class="menuheader" style="border-top-color: white; text-transform: none; font-size: 15px; font-weight: bold; width: 300px">
+           Number Sequence Calculator</label>
+        </div>
+            <div class="panel panel-default col-sm-8" style="margin-bottom: 5px;">
+                <div style="height:5px;"></div>
+                <div class="form-group row" style="margin-bottom: 5px;">
+                    <div class="col-sm-4">
+                        @Html.Label("Enter Number :", new { @class = "menulabel" })
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.TextBox("txtNumber", "", new { @class = "form-control", @maxlength = "3" })
+                    </div>
+                    <div class="col-sm-4">
+                        <button type="button" class="btn menuheader" style="border-top-color: white; text-transform: none; font-size: 15px; font-weight: bold; width: 200px" onclick="GetNumbericSequence()">
+                            Submit
+                        </button>                      
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default col-sm-8" style="margin-bottom: 5px;">
+                <div>
+                    <label class="menulabel">Instructions</label>
+                </div>
+                <div>
+                    <label class="Inslabel">
+                        Enter a whole number 1- 999 in the text box and submit to get the following sequence till the number given,
+                    </label>
+                </div>
+                <div>
+                    <label class="Inslabel">
+                        i) All numbers.
+                    </label>
+                </div>
+                <div>
+                    <label class="Inslabel">
+                        ii) Odd numbers.
+                    </label>
+                </div>
+                <div>
+                    <label class="Inslabel">
+                        iii) Even numbers.
+                    </label>
+                </div>
+                <div>
+                    <label class="Inslabel">
+                        iv) Special numbers.
+                    </label>
+                </div>
+                <div>
+                    <label class="Inslabel">
+                        v) Fibonacci series.
+                    </label>
+                </div>
+            </div>
+            <div id="divNumberSequenceDtails">
+            </div>
+        </div>
+
+    <script type="text/javascript">
+        function GetNumbericSequence() {
+            var num = $("#txtNumber").val();
+            $("#divNumberSequenceDtails").load("@Url.Action("NumericSequenceResult", "NumericSequence")?num=" + num, function (response, status, xhr) {
+                if (status == "error") {
+                    alert(xhr.statusText);
+                }
+            });
+        }
+
+        document.querySelector("input").addEventListener("keypress", function (evt) {
+            if (evt.which < 48 || evt.which > 57) {
+                evt.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿@model  NumericSequenceCalculator_UI.Models.NumericSequence
+
+@{
+    ViewBag.Title = "Number Details";
+}
+
+@Html.ValidationSummary(true)
+<div class="panel panel-default col-sm-8" style="margin-bottom: 5px;">
+    <div style="height:5px;"></div>
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.Label("All Numbers : ", new { @class = "menulabel" })
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.AllNumbers, new { @class = "Inslabel" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.Label("Odd Numbers : ", new { @class = "menulabel" })
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.OddNumbers, new { @class = "Inslabel" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.Label("Even Numbers : ", new { @class = "menulabel" })
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.EvenNumbers, new { @class = "Inslabel" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.Label("Special Numbers : ", new { @class = "menulabel" })
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.SpecialNumbers, new { @class = "Inslabel" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.Label("Fibonacci Numbers : ", new { @class = "menulabel" })
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.FibonacciNumbers, new { @class = "Inslabel" })
+        </div>
+    </div>
+</div>
+
+
